@@ -5,6 +5,7 @@
 1. [Starting A Project](#introduction-to-django)
 2. [Running the App](#running-the-app)
 3. [Creating an app(component)](#creating-an-appcomponent)
+4. [Modifying the view](#modifying-the-view)
 
 ## Starting a project
 
@@ -25,4 +26,6 @@ python manage.py runserver
 django-admin startapp home
 ```
 
-
+## Modifying the view
+- `views.py`: Handles the request-response cycle for your web application. This is where you define how your application
+  responds to user requests. Once you add your new view... you import and add it to the `urls.py` file
