@@ -80,6 +80,28 @@ To begin your Django project, follow these straightforward steps:
    ```
    Follow the prompts to set a username, email, and password for the superuser. This step is essential for accessing the Django admin interface and managing your project's data.
 
+
+6. **User Authentication:**
+   Implementing user authentication allows your application to manage user sessions, providing a personalized and secure user experience. Here's how you can set up authentication, complete with rerouting unauthenticated users:
+
+   - **Templates for Authentication:** Create HTML templates for the login and registration forms. These will be the front-end components where users can input their login details.
+
+   - **Authentication Views:** Develop views in your Django app to handle user authentication processes such as logging in and logging out.
+
+   - **Access Control:** Use Django's `@login_required` decorator to protect views by ensuring only authenticated users can access them.
+
+   - **Redirecting Unauthenticated Users:** To redirect unauthenticated users trying to access restricted pages, specify a `login_url` in the `@login_required` decorator. This determines where to send users who are not logged in. For example, if you want to redirect unauthenticated users to the admin login page before they can access a specific view, you can do so as follows:
+
+   ```python
+   from django.contrib.auth.decorators import login_required
+   from django.shortcuts import render
+
+   @login_required(login_url='/admin')
+   def authorized(request):
+       # This view is now protected, and unauthenticated users are redirected.
+       return render(request, 'home/authorized.html', {})
+   ```
+
 By completing these steps, your Django project is not only up and running but also configured with a superuser account, granting you access to the powerful Django admin interface. This setup allows for easier management of your project's users and settings right from the start.
 
 ### Files Generated Explained
