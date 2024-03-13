@@ -39,12 +39,14 @@ To begin your Django project, follow these straightforward steps:
    Once the app is created, you need to include it in your project's settings.
 
 2. **Update `settings.py`:** Open the `settings.py` file located in your project directory. This file is created automatically when you start a new Django project. Add your new app to the `INSTALLED_APPS` section by including its name as a string:
+
    ```python
    INSTALLED_APPS = [
       ...
       'itinerary',
    ]
    ```
+
    This step tells your Django project to recognize and include the `itinerary` app, making its functionalities available to the entire project.
 
    **Best Practice Alert:** It's recommended to structure your apps in a way that the project remains functional even if an app is removed. This modular approach ensures that each app can operate independently within the larger project framework.
@@ -61,6 +63,24 @@ To begin your Django project, follow these straightforward steps:
    ```
 
    This setup helps maintain organized URL structures and makes it easier to navigate and manage different app components within your project.
+
+4. **Run Migrations:**
+   Django uses migrations to apply changes to your database schema. These migrations make sure your database is up-to-date with your models. When you first set up your project, you need to apply the initial migrations for Django's built-in apps, such as `admin` and `auth`, which provide the admin panel and user authentication, respectively. Run the following command to apply these initial migrations:
+
+   ```python
+   python manage.py migrate
+   ```
+
+   This command configures your database to work with Django's default apps, setting up necessary tables for user management and admin functionalities.
+
+5. **Creating a Superuser:**
+   A superuser has full access to your project's admin site, allowing you to manage aspects like user accounts and groups. After your database is set up, create a superuser account by running:
+   ```python
+   python manage.py createsuperuser
+   ```
+   Follow the prompts to set a username, email, and password for the superuser. This step is essential for accessing the Django admin interface and managing your project's data.
+
+By completing these steps, your Django project is not only up and running but also configured with a superuser account, granting you access to the powerful Django admin interface. This setup allows for easier management of your project's users and settings right from the start.
 
 ### Files Generated Explained
 
