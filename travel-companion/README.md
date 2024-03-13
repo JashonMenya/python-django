@@ -102,6 +102,34 @@ To begin your Django project, follow these straightforward steps:
        return render(request, 'home/authorized.html', {})
    ```
 
+
+7. **Working with Django ORM:**
+
+   Django's ORM (Object-Relational Mapping) allows you to interact with your database using Python code instead of SQL. By defining models, you create a Pythonic representation of your database structure. Here's how to use Django's ORM to create models and reflect them as tables in your database:
+
+   - **Creating Models:** Each model you define in your Django app represents a database table. The attributes of the class (model) correspond to columns in the database table. This approach allows you to work with databases in a more intuitive and Pythonic way.
+
+   - **Migrations:** Migrations are Django's way of propagating changes you make to your models (like adding a new field or creating a new model) into the database schema. There are two steps involved:
+       1. **Making Migrations:** This step generates migration files based on the changes you've made to your models. These files describe how to adjust the database to match your current models. Run the following command to create migration files:
+          ```python
+          python manage.py makemigrations
+          ```
+          The first migration file created will be named `0001_initial.py`, indicating the initial setup for your models.
+
+       2. **Applying Migrations:** After creating migration files, you need to apply them to update the database schema. This step executes the instructions defined in the migrations to alter the database structure. Execute the migrations by running:
+          ```python
+          python manage.py migrate
+          ```
+
+   - **Example Model:** To see an example of how to define a model, refer to [here](../smartnotes/notes/models.py)
+
+   By following these steps, you successfully create tables in your database based on your Django models, utilizing the full power of Django's ORM for managing database operations.
+
+This ORM-centric approach facilitates the efficient management of database schemas and data manipulation, making it an essential part of developing applications with Django.
+
+
+
+
 By completing these steps, your Django project is not only up and running but also configured with a superuser account, granting you access to the powerful Django admin interface. This setup allows for easier management of your project's users and settings right from the start.
 
 ### Files Generated Explained
