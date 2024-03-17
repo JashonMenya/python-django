@@ -4,7 +4,18 @@ from datetime import datetime
 # from django.contrib.auth.decorators import login_required
 from django.views.generic import TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.views import LoginView
+from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth import logout
+from django.shortcuts import redirect
+from django.views import View
+
+class LogoutInterfaceView(View):
+    def get(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            logout(request)
+        # Redirect to a specific URL after logout, you can adjust this URL as needed
+        return redirect('home')  # Redirect to the home page after logout
+
 
 class LoginInterfaceView(LoginView):
     template_name = 'home/login.html'
